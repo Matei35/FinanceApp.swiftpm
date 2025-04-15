@@ -10,6 +10,7 @@ struct ContentView: View {
             Text("Hello, world!")
             TextField("Enter your salary!", value: $salary1, format: .number)
                 .multilineTextAlignment(.center)
+            
         }
     }
 }
