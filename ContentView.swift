@@ -1,6 +1,8 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var totalSavings: Int!
+    @State var retirementAccount: Int!
     @State var salary1: Int!
     var body: some View {
         VStack {
