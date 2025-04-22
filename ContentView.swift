@@ -8,18 +8,21 @@ struct ContentView: View {
     @State var retirementAccount: Int!
     
     var body: some View {
+        NavigationStack{
             Text("J.M.C. Finance App")
-            .font(.largeTitle)
-            .foregroundStyle(.green)
-        TextField("Enter your salary!", value: $salary1, format: .number)
+                .font(.largeTitle)
+                .foregroundStyle(.green)
+            TextField("Enter your salary!", value: $salary1, format: .number)
                 .multilineTextAlignment(.center)
-        
-        Button {
-            calculateTax()
-        } label: {
-            Text("Calculate Monthly Take Home Pay")
+            
+            Button {
+                calculateTax()
+            } label: {
+                Text("Calculate Monthly Take Home Pay After Taxes")
+            }
+            Text(String("$\(takeHomePay)"))
         }
-        Text(String("$\(takeHomePay)"))
+        
     }
     
     

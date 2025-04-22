@@ -1,0 +1,7 @@
+import SwiftUI
+
+struct RetirementAccountView: View {
+    var body: some View {
+        @State var retirementAccount
+    }
+}
