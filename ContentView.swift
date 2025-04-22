@@ -8,8 +8,12 @@ struct ContentView: View {
     @State var retirementAccount: Int!
     
     var body: some View {
-        TextField("Enter your salary in USD!", value: $salary1, format: .number)
-            .multilineTextAlignment(.center)
+            Text("J.M.C. Finance App")
+            .font(.largeTitle)
+            .foregroundStyle(.green)
+        TextField("Enter your salary!", value: $salary1, format: .number)
+                .multilineTextAlignment(.center)
+        
         Button {
             calculateTax()
         } label: {
