@@ -2,22 +2,18 @@ import SwiftUI
 
 struct ContentView: View {
     @State var takeHomePay: Double = 0
-    @State var salary1: Double = 0
+    @State var salary1: Double! = 0
     @State var Tax: Double = 0
-    
-    
-    
     @State var totalSavings: Int!
     @State var retirementAccount: Int!
-    @State var salary1: Int!
-    @State var Tax: Int!
+    
     var body: some View {
         TextField("Enter your salary in USD!", value: $salary1, format: .number)
             .multilineTextAlignment(.center)
         Button {
             calculateTax()
         } label: {
-            Text("Calculate Take Home Pay")
+            Text("Calculate Monthly Take Home Pay")
         }
         Text(String("$\(takeHomePay)"))
     }
@@ -66,7 +62,7 @@ struct ContentView: View {
                     let tier7 = 0.37 * (salary1 - 609350)
                     Tax = tier1 + tier2 + tier3 + tier4 + tier5 + tier6 + tier7
                 }
-        takeHomePay = salary1 - Tax
+        takeHomePay = (salary1 - Tax)/12
     }
 }
 
