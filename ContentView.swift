@@ -15,9 +15,7 @@ struct ContentView: View {
             .foregroundStyle(.green)
         TextField("Enter your salary!", value: $salary1, format: .number)
                 .multilineTextAlignment(.center)
-        Button("Taxes") {
-            
-        }
+        
         
         TextField("Enter your salary in USD!", value: $salary1, format: .number)
             .multilineTextAlignment(.center)
