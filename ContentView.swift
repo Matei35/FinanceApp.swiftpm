@@ -2,11 +2,12 @@ import SwiftUI
 
 struct ContentView: View {
     @State var takeHomePay: Double = 0
-    @State var salary1: Double = 0
+    @State var salary1: Double! = 0
     @State var Tax: Double = 0
     @State var totalSavings: Int!
     @State var retirementAccount: Int!
     @State var Background: Bool = true
+    
     var body: some View {
         VStack{
             Text("J.M.C. Finance App")
@@ -25,9 +26,15 @@ struct ContentView: View {
             Toggle("DarkMode",systemImage: "Background",isOn: $Background)
                 .foregroundStyle(Background ? .white : .black)
             
+        
+        Button {
+            calculateTax()
+        } label: {
+            Text("Calculate Monthly Take Home Pay")
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Background ? .black.opacity(0.9): .white)
+        Text(String("$\(takeHomePay)"))
     }
     
     
@@ -74,7 +81,7 @@ struct ContentView: View {
                     let tier7 = 0.37 * (salary1 - 609350)
                     Tax = tier1 + tier2 + tier3 + tier4 + tier5 + tier6 + tier7
                 }
-        takeHomePay = salary1 - Tax
+        takeHomePay = (salary1 - Tax)/12
     }
 }
 
