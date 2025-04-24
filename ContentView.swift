@@ -10,7 +10,7 @@ struct ContentView: View {
     
     var body: some View {
         NavigationStack{
-            NavigationLink("Go to 401k calculator!") {
+            NavigationLink("Go to 401k calculator!"){
                 RetirementAccountView()
             }
             VStack{
