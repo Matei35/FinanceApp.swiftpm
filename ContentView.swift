@@ -30,6 +30,8 @@ struct ContentView: View {
                 } label: {
                     ZStack{
                         Circle()
+                            .frame(width:90, height:90)
+                            .foregroundStyle(.yellow)
                         Text("Calculate")
                             .foregroundStyle(.blue)
                        
