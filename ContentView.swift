@@ -13,39 +13,46 @@ struct ContentView: View {
             NavigationLink("Go to 401k calculator!") {
                 RetirementAccountView()
             }
-        VStack{
-            Text("J.M.C. Finance App")
-                .font(.largeTitle)
-                .foregroundStyle(.green)
-            Text("Enter your annual salary!")
-            TextField("Enter your salary!", value: $salary1, format: .number)
-                .multilineTextAlignment(.center)
-          
-                .foregroundStyle(Background ? .white: .black)
-            
-            
-            
-            Button {
-                calculateTax()
-            } label: {
-                Text("Calculate Monthly Take Home Pay After Taxes")
-                Text("Calculate Monthly Take Home Pay")
-            }
-            Text(String("$\(takeHomePay)"))
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
-            
-            Text(String("Your Monthly Take Home Pay: $\(takeHomePay)"))
+            VStack{
+                    Text("J.M.C. Finance App")
+                    .font(.largeTitle)
+                    .foregroundStyle(.green)
+                Text("Enter your annual salary!")
+                TextField("Enter your salary!", value: $salary1, format: .number)
+                    .multilineTextAlignment(.center)
                 
+                    .foregroundStyle(Background ? .white: .black)
+                
+                
+                
+                Button {
+                    calculateTax()
+                } label: {
+                    ZStack{
+                        Circle()
+                        Text("Calculate")
+                            .foregroundStyle(.blue)
+                       
+                    }
+                }
+                
+                    
+                    Text(String("Your yearly take homepay: $\(takeHomePay)"))
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                
+                
+                Text(String("Your Monthly Take Home Pay: $\(takeHomePay/12)"))
+                
+                
+                Toggle("Dark Mode" ,systemImage: "Background",isOn: $Background)
+            }
             
-            Toggle("Dark Mode" ,systemImage: "Background",isOn: $Background)
-        }
-        
             .foregroundStyle(Background ? .white : .black)
-        .background(Background ? .black.opacity(0.9): .white)
-    
+            .background(Background ? .black.opacity(0.9): .white)
+            
+        }
     }
-        
-    func calculateTax() {
+        func calculateTax() {
             if salary1 <= 11061 && salary1 >= 0 {
                 Tax = 0.1 * salary1
             } else if salary1 <= 47150 {
@@ -88,7 +95,8 @@ struct ContentView: View {
                 let tier7 = 0.37 * (salary1 - 609350)
                 Tax = tier1 + tier2 + tier3 + tier4 + tier5 + tier6 + tier7
             }
-            takeHomePay = (salary1 - Tax)/12
-        
+            takeHomePay = (salary1 - Tax)
+            
+        }
     }
-}
+
