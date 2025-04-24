@@ -9,18 +9,22 @@ struct ContentView: View {
     
     var body: some View {
         NavigationStack{
+            NavigationLink("Go to 401k calculator!") {
+                RetirementAccountView()
+            }
             Text("J.M.C. Finance App")
                 .font(.largeTitle)
                 .foregroundStyle(.green)
             TextField("Enter your salary!", value: $salary1, format: .number)
                 .multilineTextAlignment(.center)
-            
+          
             Button {
                 calculateTax()
             } label: {
                 Text("Calculate Monthly Take Home Pay After Taxes")
             }
             Text(String("$\(takeHomePay)"))
+            
         }
         
     }
