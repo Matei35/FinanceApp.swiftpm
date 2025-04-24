@@ -3,7 +3,7 @@ import SwiftUI
 struct ContentView: View {
     @State var takeHomePay: Double = 0
     @State var salary1: Double! = 0
-    @State var Tax: Double = 0
+    @State var Tax: Double! = 0
     @State var totalSavings: Int!
     @State var retirementAccount: Int!
     @State var Background: Bool = true
@@ -13,6 +13,7 @@ struct ContentView: View {
             Text("J.M.C. Finance App")
                 .font(.largeTitle)
                 .foregroundStyle(.green)
+            Text("Enter your annual salary!")
             TextField("Enter your salary!", value: $salary1, format: .number)
                 .multilineTextAlignment(.center)
                 .foregroundStyle(Background ? .white: .black)
@@ -26,12 +27,14 @@ struct ContentView: View {
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             
-            Text(String("$\(takeHomePay)"))
+            Text(String("Your Monthly Take Home Pay: $\(takeHomePay)"))
+                
             
-            Toggle("DarkMode",systemImage: "Background",isOn: $Background)
+            Toggle("Dark Mode" ,systemImage: "Background",isOn: $Background)
         }
             .foregroundStyle(Background ? .white : .black)
         .background(Background ? .black.opacity(0.9): .white)
+    
     }
         
     func calculateTax() {
