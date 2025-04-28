@@ -13,6 +13,9 @@ struct ContentView: View {
             NavigationLink("Go to 401k calculator!"){
                 RetirementAccountView()
             }
+            NavigationLink("Go to Housing Costs"){
+                HousingView()
+            }
             VStack{
                     Text("J.M.C. Finance App")
                     .font(.largeTitle)

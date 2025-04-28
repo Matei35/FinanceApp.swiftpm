@@ -7,8 +7,6 @@ struct RetirementAccountView: View {
     @State var age: Int = 0
         var body: some View{
             Text("Enter your age")
-            Text("Enter your salary post tax")
-            TextField("Enter your salary post-tax!", value: $takeHomePay, format: .number)
                 .multilineTextAlignment(.center)
             Text("Enter money for 401k")
             TextField("Money for 401k", value: $retirementAccount, format: .number)
