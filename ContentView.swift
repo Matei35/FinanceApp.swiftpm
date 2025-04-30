@@ -11,7 +11,7 @@ struct ContentView: View {
     var body: some View {
         
         
-        
+        NavigationStack{
         
         VStack{
             
@@ -64,7 +64,7 @@ struct ContentView: View {
             .background(Background ? .black.opacity(0.9): .white)
         .foregroundStyle(Background ? .white: .black)
         
-        NavigationStack{
+        
         }
     }
 
