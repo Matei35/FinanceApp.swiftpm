@@ -1,46 +1,43 @@
 import SwiftUI
 
 struct HousingView: View {
+    @Binding var moneyPost401k: Double
     @State var Housing: String = ""
-    @State var HousingCostsPerMonth: Double
-    @State var savingsAfterHousing: Double
+    @State var HousingCostsPerMonth: Double = 0
+    @State var savingsAfterHousing: Double = 0
+    @State var selectedHousing: String = "Apartment"
+    let housingOptions = ["Apartment", "Condo", "House", "Mansion"]
+    
     var body: some View {
-        TextField("Enter the type of resident you want to live in", text: $Housing)
-            .multilineTextAlignment(.center)
-        Button("Calculate for housing costs per month") {
-            if Housing == "condo" {
-                HousingCostsPerMonth = 1500
+        Text("Select the type of resident you want to live in:")
+        Picker("Housing Type", selection: $selectedHousing) {
+            ForEach(housingOptions, id: \.self) { option in
+                Text(option)
             }
-            if Housing == "Condo" {
-                HousingCostsPerMonth = 1500
+        }
+        .pickerStyle(SegmentedPickerStyle())
+        .padding()
+            Button("Calculate for housing costs per month") {
+                switch selectedHousing {
+                case "Condo":
+                    HousingCostsPerMonth = 1500
+                case "Apartment":
+                    HousingCostsPerMonth = 1000
+                case "House":
+                    HousingCostsPerMonth = 5000
+                case "Mansion":
+                    HousingCostsPerMonth = 30000
+                default:
+                    HousingCostsPerMonth = 0
+                }
+                savingsAfterHousing = (moneyPost401k/12) - HousingCostsPerMonth
             }
-            if Housing == "Apartment" {
-                HousingCostsPerMonth = 1000
+            
+            VStack{
+                Text("This is how much you are spending a month on your home: \(HousingCostsPerMonth, specifier: "%.2f")")
+                
+                Text("This is how much you are saving a month after all costs: $\(savingsAfterHousing, specifier: "%.2f")")
             }
-            if Housing == "apartment" {
-                HousingCostsPerMonth = 1000
-            }
-            if Housing == "Single House" {
-                HousingCostsPerMonth = 5000
-            }
-            if Housing == "single house" {
-                HousingCostsPerMonth = 5000
-            }
-            if Housing == "single house" {
-                HousingCostsPerMonth = 5000
-            }
-            if Housing == "Single house" {
-                HousingCostsPerMonth = 5000
-            }
-            if Housing == "Mansion" {
-                HousingCostsPerMonth = 30000
-            }
-            if Housing == "mansion" {
-                HousingCostsPerMonth = 30000
-            }
-            Text("This is how much you are spending a month on your home: \(HousingCostsPerMonth)")
-            savingsAfterHousing = takeHomePay - HousingCostsPerMonth
-            Text("This is how much you are saving a month after all costs: $\(savingsAfterHousing)")
         }
     }
-}
+

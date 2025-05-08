@@ -7,6 +7,11 @@ struct RetirementAccountView: View {
     @State var age: Double = 0
     @State var output: String = ""
         var body: some View{
+            NavigationStack{
+                NavigationLink("Go to Housing Costs"){
+                    HousingView(moneyPost401k: $moneyPost401k)
+                }
+            }
             Text("Enter your age")
             TextField("", value: $age, format: .number)
                 .multilineTextAlignment(.center)

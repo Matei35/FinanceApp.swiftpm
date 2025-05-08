@@ -13,9 +13,6 @@ struct ContentView: View {
             NavigationLink("Go to 401k calculator!"){
                 RetirementAccountView()
             }
-            NavigationLink("Go to Housing Costs"){
-                HousingView()
-            }
             VStack{
                     Text("J.M.C. Finance App")
                     .font(.largeTitle)
@@ -40,9 +37,11 @@ struct ContentView: View {
                        
                     }
                 }
+                .buttonStyle(.borderedProminent)
+                .foregroundStyle(.orange)
                 
                     
-                    Text(String("Your yearly take homepay: $\(takeHomePay)"))
+                    Text(String("Your annual take homepay: $\(takeHomePay)"))
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                 
                 
