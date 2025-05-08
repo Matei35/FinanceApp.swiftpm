@@ -40,7 +40,12 @@ struct ContentView: View {
                         
                     }
                 }
+                .buttonStyle(.borderedProminent)
+                .foregroundStyle(.orange)
                 
+                    
+                    Text(String("Your annual take homepay: $\(takeHomePay)"))
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
                 
                 Text(String("Your yearly take homepay: $\(takeHomePay)"))
                 
