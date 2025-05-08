@@ -56,6 +56,8 @@ struct ContentView: View {
             
                 
 
+                Spacer()
+            
                 Toggle("Dark Mode",isOn: $Background)
             .padding(.bottom,450)
             

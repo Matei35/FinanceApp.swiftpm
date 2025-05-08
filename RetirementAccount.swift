@@ -56,6 +56,8 @@ struct RetirementAccountView: View {
                 Text("Calculate")
                     .foregroundStyle(.blue)
                 
+                Toggle("Dark Mode",isOn: $Background)
+                    .padding(.bottom)
             }
         }
         Text(String("Money left after 401k: $\(moneyPost401k)"))
