@@ -49,7 +49,7 @@ struct ContentView: View {
                 Text(String("Your Monthly Take Home Pay: $\(takeHomePay/12)"))
                 
                 NavigationLink("Go to 401k calculator!"){
-                    RetirementAccountView()
+                    RetirementAccountView(takeHomePay: $takeHomePay)
                 }
                 
             
