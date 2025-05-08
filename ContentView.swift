@@ -6,22 +6,25 @@ struct ContentView: View {
     @State var Tax: Double! = 0
     @State var totalSavings: Int!
     @State var retirementAccount: Int!
-    @State var Background: Bool = true
+    @State var Background: Bool = false
     
     var body: some View {
+        
+        
         NavigationStack{
-            NavigationLink("Go to 401k calculator!"){
-                RetirementAccountView()
-            }
-            VStack{
-                    Text("J.M.C. Finance App")
+        
+        VStack{
+            
+           
+                Text("J.M.C. Finance App")
                     .font(.largeTitle)
                     .foregroundStyle(.green)
-                Text("Enter your annual salary!")
+                    .padding(50)
+                
+            Text("Enter your annual salary!")
                 TextField("Enter your salary!", value: $salary1, format: .number)
                     .multilineTextAlignment(.center)
                 
-                    .foregroundStyle(Background ? .white: .black)
                 
                 
                 
@@ -34,7 +37,7 @@ struct ContentView: View {
                             .foregroundStyle(.yellow)
                         Text("Calculate")
                             .foregroundStyle(.blue)
-                       
+                        
                     }
                 }
                 .buttonStyle(.borderedProminent)
@@ -44,18 +47,34 @@ struct ContentView: View {
                     Text(String("Your annual take homepay: $\(takeHomePay)"))
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                 
+                Text(String("Your yearly take homepay: $\(takeHomePay)"))
+                
+                
                 
                 Text(String("Your Monthly Take Home Pay: $\(takeHomePay/12)"))
                 
+                NavigationLink("Go to 401k calculator!"){
+                    RetirementAccountView()
+                }
                 
-                Toggle("Dark Mode" ,systemImage: "Background",isOn: $Background)
+            
+            
+                
+
+                Spacer()
+            
+                Toggle("Dark Mode",isOn: $Background)
+            .padding(.bottom,450)
+            
             }
-            
-            .foregroundStyle(Background ? .white : .black)
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(Background ? .black.opacity(0.9): .white)
-            
+        .foregroundStyle(Background ? .white: .black)
+        
+        
         }
     }
+
         func calculateTax() {
             if salary1 <= 11061 && salary1 >= 0 {
                 Tax = 0.1 * salary1
