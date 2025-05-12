@@ -20,7 +20,6 @@ struct ContentView: View {
                     .font(.largeTitle)
                     .foregroundStyle(.green)
                     .padding(50)
-                
             Text("Enter your annual salary!")
                 TextField("Enter your salary!", value: $salary1, format: .number)
                     .multilineTextAlignment(.center)
