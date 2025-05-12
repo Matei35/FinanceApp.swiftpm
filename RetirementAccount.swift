@@ -20,7 +20,7 @@ struct RetirementAccountView: View {
                 .multilineTextAlignment(.center)
                 .textFieldStyle(.roundedBorder)
                 .frame(width:300)
-                .foregroundStyle(Background ? .black: .white)
+                .foregroundStyle(.black)
             Button("Find out Maximum Limit for 401k"){
                 if age <= 49 {
                     amount = 23500
@@ -49,15 +49,14 @@ struct RetirementAccountView: View {
                 .multilineTextAlignment(.center)
                 .textFieldStyle(.roundedBorder)
                 .frame(width:300)
-                .foregroundStyle(Background ? .black: .white)
+                .foregroundStyle(.black)
             Text("Enter money for 401k")
                 .foregroundStyle(Background ? .white: .black)
             TextField("Money for 401k", value: $retirementAccount, format: .number)
                 .multilineTextAlignment(.center)
                 .textFieldStyle(.roundedBorder)
                 .frame(width:300)
-                .foregroundStyle(Background ? .black: .white)
-                
+                .foregroundStyle(.black)
                 
                 
                 

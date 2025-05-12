@@ -24,7 +24,8 @@ struct ContentView: View {
             Text("Enter your annual salary!")
                 .foregroundStyle(Background ? .white: .black)
                 TextField("Enter your salary!", value: $salary1, format: .number)
-                    .foregroundStyle(Background ? .black: .white)
+                .foregroundStyle(.black)
+
                     .multilineTextAlignment(.center)
                     .textFieldStyle(.roundedBorder)
                     .frame(width:300)
