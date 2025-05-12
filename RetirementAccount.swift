@@ -72,7 +72,7 @@ struct RetirementAccountView: View {
             
             Toggle("Dark Mode",isOn: $Background)
                 .padding(.bottom)
-            
+                .foregroundStyle(Background ? .white: .black)
             Text("\(monkey)")
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
