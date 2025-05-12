@@ -10,65 +10,75 @@ struct RetirementAccountView: View {
     @State var monkey: String = ""
     @State var Background: Bool = false
     var body: some View {
-        Text("Enter your age")
-        TextField("", value: $age, format: .number)
-            .multilineTextAlignment(.center)
-        Button("Find out Maximum Limit for 401k"){
-            if age <= 49 {
-                amount = 23500
-                output = ("The maximum amount you can put in your 401k is \(amount.formatted(.currency(code: "USD")))")
-            }
-            if age >= 50 && age <= 59 {
-                amount = 31000
-                output = "The maximum amount you can put in your 401k is \(amount.formatted(.currency(code: "USD")))"
-            }
-            if age >= 60 && age <= 63 {
-                amount = 34750
-                output = "The maximum amount you can put in your 401k is \(amount.formatted(.currency(code: "USD")))"
-            }
-            
-            if age >= 64 {
-                amount = 31000
-                output = "The maximum amount you can put in your 401k is \(amount.formatted(.currency(code: "USD")))"
-            }
-        }
-        
-        Text("\(output)")
-        Text("Enter your yearly salary post tax")
-        TextField("", value: $takeHomePay, format: .number)
-            .multilineTextAlignment(.center)
-        Text("Enter money for 401k")
-        TextField("Money for 401k", value: $retirementAccount, format: .number)
-            .multilineTextAlignment(.center)
-        
-        
-       
-       
-        
-        Button {
-            CalculatePost401k()
-            
-        } label: {
-            ZStack{
-                Circle()
-                    .frame(width:90, height:90)
-                    .foregroundStyle(.yellow)
-                Text("Calculate")
-                    .foregroundStyle(.blue)
+        VStack{
+            Text("Enter your age")
+                .foregroundStyle(Background ? .white: .black)
+            TextField("", value: $age, format: .number)
+                .multilineTextAlignment(.center)
+                .foregroundStyle(Background ? .white: .black)
+            Button("Find out Maximum Limit for 401k"){
+                if age <= 49 {
+                    amount = 23500
+                    output = ("The maximum amount you can put in your 401k is \(amount.formatted(.currency(code: "USD")))")
+                }
+                if age >= 50 && age <= 59 {
+                    amount = 31000
+                    output = "The maximum amount you can put in your 401k is \(amount.formatted(.currency(code: "USD")))"
+                }
+                if age >= 60 && age <= 63 {
+                    amount = 34750
+                    output = "The maximum amount you can put in your 401k is \(amount.formatted(.currency(code: "USD")))"
+                }
                 
-                Toggle("Dark Mode",isOn: $Background)
-                    .padding(.bottom)
+                if age >= 64 {
+                    amount = 31000
+                    output = "The maximum amount you can put in your 401k is \(amount.formatted(.currency(code: "USD")))"
+                }
             }
+            
+            Text("\(output)")
+                .foregroundStyle(Background ? .white: .black)
+            Text("Enter your yearly salary post tax")
+                .foregroundStyle(Background ? .white: .black)
+            TextField("", value: $takeHomePay, format: .number)
+                .multilineTextAlignment(.center)
+                .foregroundStyle(Background ? .white: .black)
+            Text("Enter money for 401k")
+                .foregroundStyle(Background ? .white: .black)
+            TextField("Money for 401k", value: $retirementAccount, format: .number)
+                .multilineTextAlignment(.center)
+                .foregroundStyle(Background ? .white: .black)
+            
+            
+            
+            
+            Button {
+                CalculatePost401k()
+                
+            } label: {
+                ZStack{
+                    Circle()
+                        .frame(width:90, height:90)
+                        .foregroundStyle(.yellow)
+                    Text("Calculate")
+                        .foregroundStyle(.blue)
+                    
+                    
+                    
+                }
+            }
+            Text(String("Money left after 401k: $\(moneyPost401k)"))
+                .foregroundStyle(Background ? .white: .black)
+            
+            Toggle("Dark Mode",isOn: $Background)
+                .padding(.bottom)
+                .foregroundStyle(Background ? .white: .black)
+            Text("\(monkey)")
         }
-        Text(String("Money left after 401k: $\(moneyPost401k)"))
-        
-        Toggle("Dark Mode",isOn: $Background)
-            .padding(.bottom)
-        
-    Text("\(monkey)")
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .background(Background ? .black.opacity(0.9): .white)
-            .foregroundStyle(Background ? .white: .black)
+               
+            
     }
     func CalculatePost401k (){
         moneyPost401k = takeHomePay - retirementAccount

@@ -24,7 +24,7 @@ struct ContentView: View {
             Text("Enter your annual salary!")
                 TextField("Enter your salary!", value: $salary1, format: .number)
                     .multilineTextAlignment(.center)
-                
+                    .foregroundStyle(Background ? .white: .black)
                 
                 
                 
@@ -37,16 +37,17 @@ struct ContentView: View {
                             .foregroundStyle(.yellow)
                         Text("Calculate")
                             .foregroundStyle(.blue)
-                        
+                            .foregroundStyle(Background ? .white: .black)
                     }
                 }
                 
                 
                 Text(String("Your yearly take homepay: $\(takeHomePay)"))
-                
+                .foregroundStyle(Background ? .white: .black)
                 
                 
                 Text(String("Your Monthly Take Home Pay: $\(takeHomePay/12)"))
+                .foregroundStyle(Background ? .white: .black)
                 
                 NavigationLink("Go to 401k calculator!"){
                     RetirementAccountView()
@@ -60,11 +61,12 @@ struct ContentView: View {
             
                 Toggle("Dark Mode",isOn: $Background)
             .padding(.bottom,450)
+            .foregroundStyle(Background ? .white: .black)
             
             }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(Background ? .black.opacity(0.9): .white)
-        .foregroundStyle(Background ? .white: .black)
+        
         
         
         }
