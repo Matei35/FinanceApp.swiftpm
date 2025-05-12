@@ -20,11 +20,15 @@ struct ContentView: View {
                     .font(.largeTitle)
                     .foregroundStyle(.green)
                     .padding(50)
-                
+                    
             Text("Enter your annual salary!")
+                .foregroundStyle(Background ? .white: .black)
                 TextField("Enter your salary!", value: $salary1, format: .number)
+                    .foregroundStyle(Background ? .black: .white)
                     .multilineTextAlignment(.center)
-                    .foregroundStyle(Background ? .white: .black)
+                    .textFieldStyle(.roundedBorder)
+                    .frame(width:300)
+                    
                 
                 
                 
@@ -43,9 +47,6 @@ struct ContentView: View {
                 .buttonStyle(.borderedProminent)
                 .foregroundStyle(.orange)
                 
-                    
-                    Text(String("Your annual take homepay: $\(takeHomePay)"))
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
                 
                 Text(String("Your yearly take homepay: $\(takeHomePay)"))
                 .foregroundStyle(Background ? .white: .black)

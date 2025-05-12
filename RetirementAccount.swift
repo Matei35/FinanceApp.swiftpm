@@ -15,7 +15,9 @@ struct RetirementAccountView: View {
                 .foregroundStyle(Background ? .white: .black)
             TextField("", value: $age, format: .number)
                 .multilineTextAlignment(.center)
-                .foregroundStyle(Background ? .white: .black)
+                .textFieldStyle(.roundedBorder)
+                .frame(width:300)
+                .foregroundStyle(Background ? .black: .white)
             Button("Find out Maximum Limit for 401k"){
                 if age <= 49 {
                     amount = 23500
@@ -42,12 +44,16 @@ struct RetirementAccountView: View {
                 .foregroundStyle(Background ? .white: .black)
             TextField("", value: $takeHomePay, format: .number)
                 .multilineTextAlignment(.center)
-                .foregroundStyle(Background ? .white: .black)
+                .textFieldStyle(.roundedBorder)
+                .frame(width:300)
+                .foregroundStyle(Background ? .black: .white)
             Text("Enter money for 401k")
                 .foregroundStyle(Background ? .white: .black)
             TextField("Money for 401k", value: $retirementAccount, format: .number)
                 .multilineTextAlignment(.center)
-                .foregroundStyle(Background ? .white: .black)
+                .textFieldStyle(.roundedBorder)
+                .frame(width:300)
+                .foregroundStyle(Background ? .black: .white)
             
             
             
