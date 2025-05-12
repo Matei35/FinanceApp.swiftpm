@@ -40,7 +40,12 @@ struct ContentView: View {
                             .foregroundStyle(Background ? .white: .black)
                     }
                 }
+                .buttonStyle(.borderedProminent)
+                .foregroundStyle(.orange)
                 
+                    
+                    Text(String("Your annual take homepay: $\(takeHomePay)"))
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
                 
                 Text(String("Your yearly take homepay: $\(takeHomePay)"))
                 .foregroundStyle(Background ? .white: .black)
@@ -50,7 +55,7 @@ struct ContentView: View {
                 .foregroundStyle(Background ? .white: .black)
                 
                 NavigationLink("Go to 401k calculator!"){
-                    RetirementAccountView()
+                    RetirementAccountView(takeHomePay: $takeHomePay)
                 }
                 
             

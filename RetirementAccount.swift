@@ -2,7 +2,7 @@ import SwiftUI
 
 struct RetirementAccountView: View {
     @State var retirementAccount: Double = 0
-    @State var takeHomePay: Double = 0
+    @Binding var takeHomePay: Double 
     @State var moneyPost401k: Double =  0
     @State var age: Double = 0
     @State var amount: Int = 0
@@ -98,4 +98,3 @@ struct RetirementAccountView: View {
             monkey = ""
         }
 }
-
