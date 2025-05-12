@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct RetirementAccountView: View {
+    
     @State var retirementAccount: Double = 0
     @State var housing: Double = 0
     @Binding var takeHomePay: Double
@@ -56,49 +57,6 @@ struct RetirementAccountView: View {
                 .textFieldStyle(.roundedBorder)
                 .frame(width:300)
                 .foregroundStyle(Background ? .black: .white)
-            
-            
-            
-            
-        
-            VStack{
-                Text("Enter your age")
-                    .foregroundStyle(Background ? .white: .black)
-                TextField("", value: $age, format: .number)
-                    .multilineTextAlignment(.center)
-                    .foregroundStyle(Background ? .white: .black)
-                Button("Find out Maximum Limit for 401k"){
-                    if age <= 49 {
-                        amount = 23500
-                        output = ("The maximum amount you can put in your 401k is \(amount.formatted(.currency(code: "USD")))")
-                    }
-                    if age >= 50 && age <= 59 {
-                        amount = 31000
-                        output = "The maximum amount you can put in your 401k is \(amount.formatted(.currency(code: "USD")))"
-                    }
-                    if age >= 60 && age <= 63 {
-                        amount = 34750
-                        output = "The maximum amount you can put in your 401k is \(amount.formatted(.currency(code: "USD")))"
-                    }
-                    
-                    if age >= 64 {
-                        amount = 31000
-                        output = "The maximum amount you can put in your 401k is \(amount.formatted(.currency(code: "USD")))"
-                    }
-                }
-                
-                Text("\(output)")
-                    .foregroundStyle(Background ? .white: .black)
-                Text("Enter your yearly salary post tax")
-                    .foregroundStyle(Background ? .white: .black)
-                TextField("", value: $takeHomePay, format: .number)
-                    .multilineTextAlignment(.center)
-                    .foregroundStyle(Background ? .white: .black)
-                Text("Enter money for 401k")
-                    .foregroundStyle(Background ? .white: .black)
-                TextField("Money for 401k", value: $retirementAccount, format: .number)
-                    .multilineTextAlignment(.center)
-                    .foregroundStyle(Background ? .white: .black)
                 
                 
                 
