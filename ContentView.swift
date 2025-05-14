@@ -9,13 +9,8 @@ struct ContentView: View {
     @State var Background: Bool = false
     
     var body: some View {
-        
-        
         NavigationStack{
-        
         VStack{
-            
-           
                 Text("J.M.C. Finance App")
                     .font(.largeTitle)
                     .foregroundStyle(.green)
@@ -29,11 +24,8 @@ struct ContentView: View {
                     .multilineTextAlignment(.center)
                     .textFieldStyle(.roundedBorder)
                     .frame(width:300)
-                    
                 
-                
-                
-                Button {
+            Button {
                     calculateTax()
                 } label: {
                     ZStack{
@@ -49,7 +41,7 @@ struct ContentView: View {
                 .foregroundStyle(.orange)
                 
                 
-                Text(String("Your yearly take homepay: $\(takeHomePay)"))
+                Text(String("Your yearly take homepay after tax: $\(takeHomePay)"))
                 .foregroundStyle(Background ? .white: .black)
                 
                 
@@ -60,10 +52,6 @@ struct ContentView: View {
                     RetirementAccountView(takeHomePay: $takeHomePay)
                 }
                 
-            
-            
-                
-
                 Spacer()
             
                 Toggle("Dark Mode",isOn: $Background)

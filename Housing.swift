@@ -17,27 +17,32 @@ struct HousingView: View {
         }
         .pickerStyle(SegmentedPickerStyle())
         .padding()
-            Button("Calculate for housing costs per month") {
-                switch selectedHousing {
-                case "Condo":
-                    HousingCostsPerMonth = 1500
-                case "Apartment":
-                    HousingCostsPerMonth = 1000
-                case "House":
-                    HousingCostsPerMonth = 5000
-                case "Mansion":
-                    HousingCostsPerMonth = 30000
-                default:
-                    HousingCostsPerMonth = 0
-                }
-                savingsAfterHousing = (moneyPost401k/12) - HousingCostsPerMonth
+        Button("Calculate for housing costs per month") {
+            switch selectedHousing {
+            case "Condo":
+                HousingCostsPerMonth = 1500
+            case "Apartment":
+                HousingCostsPerMonth = 1000
+            case "House":
+                HousingCostsPerMonth = 5000
+            case "Mansion":
+                HousingCostsPerMonth = 30000
+            default:
+                HousingCostsPerMonth = 0
             }
+            savingsAfterHousing = (moneyPost401k/12) - HousingCostsPerMonth
+        }
+        
+        
+        
+        VStack{
+            Text("This is how much you are spending a month on your home: \(HousingCostsPerMonth, specifier: "%.2f")")
             
-            VStack{
-                Text("This is how much you are spending a month on your home: \(HousingCostsPerMonth, specifier: "%.2f")")
-                
-                Text("This is how much you are saving a month after all costs: $\(savingsAfterHousing, specifier: "%.2f")")
-            }
+            Text("This is how much you are saving a month after all costs: $\(savingsAfterHousing, specifier: "%.2f")")
+        }
+        if savingsAfterHousing <= 0 {
+            Text("You don't have enough money for this type of house!")
+        }
         }
     }
 

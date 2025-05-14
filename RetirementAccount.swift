@@ -50,8 +50,10 @@ struct RetirementAccountView: View {
                 .textFieldStyle(.roundedBorder)
                 .frame(width:300)
                 .foregroundStyle(.black)
+            
             Text("Enter money for 401k")
                 .foregroundStyle(Background ? .white: .black)
+            
             TextField("Money for 401k", value: $retirementAccount, format: .number)
                 .multilineTextAlignment(.center)
                 .textFieldStyle(.roundedBorder)
@@ -70,23 +72,21 @@ struct RetirementAccountView: View {
                             .foregroundStyle(.yellow)
                         Text("Calculate")
                             .foregroundStyle(.blue)
-                        
-                        
-                        
                     }
                 }
                 Text(String("Money left after 401k: $\(moneyPost401k)"))
                     .foregroundStyle(Background ? .white: .black)
                 NavigationLink("Go to Housing Costs") {
-                    HousingView(moneyPost401k: $housing )
+                    HousingView(moneyPost401k: $moneyPost401k)
                 }
             }
             
+            Text("\(monkey)")
+                .foregroundStyle(Background ? .white: .black)
             Toggle("Dark Mode",isOn: $Background)
                 .padding(.bottom)
                 .foregroundStyle(Background ? .white: .black)
-            Text("\(monkey)")
-        }
+                    }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .background(Background ? .black.opacity(0.9): .white)
                
