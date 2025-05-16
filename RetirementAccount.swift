@@ -69,7 +69,7 @@ struct RetirementAccountView: View {
                     ZStack{
                         Circle()
                             .frame(width:90, height:90)
-                            .foregroundStyle(.yellow)
+                            .foregroundStyle(.green)
                         Text("Calculate")
                             .foregroundStyle(.blue)
                     }
