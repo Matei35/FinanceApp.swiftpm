@@ -16,6 +16,7 @@ struct RetirementAccountView: View {
         VStack{
             Text("Enter your age")
                 .foregroundStyle(Background ? .white: .black)
+                .font(.custom("Times New Roman", size: 20))
             TextField("", value: $age, format: .number)
                 .multilineTextAlignment(.center)
                 .textFieldStyle(.roundedBorder)
@@ -26,6 +27,7 @@ struct RetirementAccountView: View {
                     amount = 23500
                     output = ("The maximum amount you can put in your 401k is \(amount.formatted(.currency(code: "USD")))")
                 }
+                    
                 if age >= 50 && age <= 59 {
                     amount = 31000
                     output = "The maximum amount you can put in your 401k is \(amount.formatted(.currency(code: "USD")))"

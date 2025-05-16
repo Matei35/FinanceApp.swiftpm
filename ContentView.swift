@@ -41,12 +41,14 @@ struct ContentView: View {
                 .foregroundStyle(.orange)
                 
                 
-                Text(String("Your yearly take homepay after tax: $\(takeHomePay)"))
-                .foregroundStyle(Background ? .white: .black)
+                Text("Your yearly take homepay after tax: $\(takeHomePay.formatted(.currency(code: "USD")))")
+                    .foregroundStyle(Background ? .white: .black)
+                    .font(.custom("Times New Roman", size: 21))
                 
                 
-                Text(String("Your Monthly Take Home Pay: $\(takeHomePay/12)"))
-                .foregroundStyle(Background ? .white: .black)
+            Text(String("Your Monthly Take Home Pay: $\(takeHomePay)"))
+                    .foregroundStyle(Background ? .white: .black)
+                    .font(.custom("Times New Roman", size: 21))
                 
                 NavigationLink("Go to 401k calculator!"){
                     RetirementAccountView(takeHomePay: $takeHomePay)
