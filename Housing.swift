@@ -36,12 +36,16 @@ struct HousingView: View {
         
         
         VStack{
-            Text("This is how much you are spending a month on your home: \(HousingCostsPerMonth, specifier: "%.2f")")
+            Text("This is how much you are spending a month on your home: $\(HousingCostsPerMonth, specifier: "%.2f")")
+                    .padding()
+                    .font(.custom("Times New Roman", size: 21))
             
             Text("This is how much you are saving a month after all costs: $\(savingsAfterHousing, specifier: "%.2f")")
+                .font(.custom("Times New Roman", size: 21))
         }
         if savingsAfterHousing <= 0 {
             Text("You don't have enough money for this type of house!")
+                .font(.custom("Times New Roman", size: 21))
         }
         }
     }

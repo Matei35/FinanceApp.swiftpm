@@ -18,6 +18,7 @@ struct ContentView: View {
                     
             Text("Enter your annual salary!")
                 .foregroundStyle(Background ? .white: .black)
+                .font(.custom("Times New Roman", size: 21))
                 TextField("Enter your salary!", value: $salary1, format: .number)
                 .foregroundStyle(.black)
 
@@ -41,14 +42,14 @@ struct ContentView: View {
                 
                 
                 
-                Text("Your yearly take homepay after tax: $\(takeHomePay.formatted(.currency(code: "USD")))")
+                Text("Your annual takehome pay after tax: $\(takeHomePay.formatted(.currency(code: "USD")))")
                     .foregroundStyle(Background ? .white: .black)
-                    .font(.custom("Times New Roman", size: 21))
+                    .font(.custom("Times New Roman", size: 17))
                 
                 
             Text(String("Your Monthly Take Home Pay: $\(takeHomePay)"))
                     .foregroundStyle(Background ? .white: .black)
-                    .font(.custom("Times New Roman", size: 21))
+                    .font(.custom("Times New Roman", size: 17))
                 
                 NavigationLink("Go to 401k calculator!"){
                     RetirementAccountView(takeHomePay: $takeHomePay)

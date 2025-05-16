@@ -46,6 +46,7 @@ struct RetirementAccountView: View {
             Text("\(output)")
                 .foregroundStyle(Background ? .white: .black)
             Text("Enter your yearly salary post tax")
+                .font(.custom("Times New Roman", size: 21))
                 .foregroundStyle(Background ? .white: .black)
             TextField("", value: $takeHomePay, format: .number)
                 .multilineTextAlignment(.center)
@@ -54,6 +55,7 @@ struct RetirementAccountView: View {
                 .foregroundStyle(.black)
             
             Text("Enter money for 401k")
+                .font(.custom("Times New Roman", size: 21))
                 .foregroundStyle(Background ? .white: .black)
             
             TextField("Money for 401k", value: $retirementAccount, format: .number)
@@ -77,6 +79,7 @@ struct RetirementAccountView: View {
                     }
                 }
                 Text(String("Money left after 401k: $\(moneyPost401k)"))
+                .font(.custom("Times New Roman", size: 21))
                     .foregroundStyle(Background ? .white: .black)
                 NavigationLink("Go to Housing Costs") {
                     HousingView(moneyPost401k: $moneyPost401k)
