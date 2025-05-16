@@ -31,14 +31,14 @@ struct ContentView: View {
                     ZStack{
                         Circle()
                             .frame(width:90, height:90)
-                            .foregroundStyle(.yellow)
+                            .foregroundStyle(.green)
                         Text("Calculate")
                             .foregroundStyle(.blue)
                             .foregroundStyle(Background ? .white: .black)
                     }
                 }
-                .buttonStyle(.borderedProminent)
-                .foregroundStyle(.orange)
+                
+                
                 
                 
                 Text(String("Your yearly take homepay after tax: $\(takeHomePay)"))
