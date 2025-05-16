@@ -11,6 +11,7 @@ struct RetirementAccountView: View {
     @State var output: String = ""
     @State var monkey: String = ""
     @State var Background: Bool = false
+    @Binding var Tax: Double
     var body: some View {
         NavigationStack {
         VStack{
@@ -82,7 +83,7 @@ struct RetirementAccountView: View {
                 .font(.custom("Times New Roman", size: 21))
                     .foregroundStyle(Background ? .white: .black)
                 NavigationLink("Go to Housing Costs") {
-                    HousingView(moneyPost401k: $moneyPost401k)
+                    HousingView(moneyPost401k: $moneyPost401k, Tax: $Tax, retirementAccount: $retirementAccount)
                 }
             }
             

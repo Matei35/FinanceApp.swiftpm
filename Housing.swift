@@ -2,6 +2,8 @@ import SwiftUI
 
 struct HousingView: View {
     @Binding var moneyPost401k: Double
+    @Binding var Tax: Double
+    @Binding var retirementAccount: Double
     @State var Housing: String = ""
     @State var HousingCostsPerMonth: Double = 0
     @State var savingsAfterHousing: Double = 0
@@ -33,7 +35,9 @@ struct HousingView: View {
             savingsAfterHousing = (moneyPost401k/12) - HousingCostsPerMonth
         }
         
-        
+        NavigationStack{
+            NavigationLink("Go to the final page", destination: conclusionView(savingsAfterHousing: $savingsAfterHousing, Tax: $Tax, retirementAccount: $retirementAccount, HousingCostsPerMonth: $HousingCostsPerMonth))
+        }
         
         VStack{
             Text("This is how much you are spending a month on your home: $\(HousingCostsPerMonth, specifier: "%.2f")")

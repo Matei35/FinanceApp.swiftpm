@@ -3,7 +3,7 @@ import SwiftUI
 struct ContentView: View {
     @State var takeHomePay: Double = 0
     @State var salary1: Double! = 0
-    @State var Tax: Double! = 0
+    @State var Tax: Double = 0
     @State var totalSavings: Int!
     @State var retirementAccount: Int!
     @State var Background: Bool = false
@@ -52,7 +52,7 @@ struct ContentView: View {
                     .font(.custom("Times New Roman", size: 17))
                 
                 NavigationLink("Go to 401k calculator!"){
-                    RetirementAccountView(takeHomePay: $takeHomePay)
+                    RetirementAccountView(takeHomePay: $takeHomePay, Tax: $Tax)
                 }
                 
                 Spacer()
