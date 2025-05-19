@@ -2,9 +2,9 @@ import SwiftUI
 
 struct ContentView: View {
     @State var takeHomePay: Double = 0
-    @State var salary1: Double! = 0
+    @State var salary1: Double = 0
     @State var Tax: Double = 0
-    @State var totalSavings: Int!
+    @State var totalSavings: Int = 0
     @State var retirementAccount: Int!
     @State var Background: Bool = false
     
@@ -42,7 +42,7 @@ struct ContentView: View {
                 
                 
                 
-                Text("Your annual takehome pay after tax: $\(takeHomePay.formatted(.currency(code: "USD")))")
+                Text("Your annual takehome pay after tax: \(takeHomePay.formatted(.currency(code: "USD")))")
                     .foregroundStyle(Background ? .white: .black)
                     .font(.custom("Times New Roman", size: 17))
                 
