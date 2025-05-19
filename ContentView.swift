@@ -47,7 +47,7 @@ struct ContentView: View {
                     .font(.custom("Times New Roman", size: 17))
                 
                 
-            Text(String("Your Monthly Take Home Pay: $\(takeHomePay)"))
+            Text(String("Your Monthly Take Home Pay: $\(takeHomePay/12)"))
                     .foregroundStyle(Background ? .white: .black)
                     .font(.custom("Times New Roman", size: 17))
                 
