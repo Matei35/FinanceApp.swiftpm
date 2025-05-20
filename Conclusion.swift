@@ -8,16 +8,16 @@ struct conclusionView: View {
     
     var body: some View {
         VStack {
-            Text("Your annual tax payment: $\(Tax)")
+            Text("Your annual tax payment: \(Tax.formatted(.currency(code: "USD")))")
                 .font(.custom("Times New Roman", size: 17))
                 .padding()
-            Text("Your annual 401k investment: $\(retirementAccount)")
+            Text("Your annual 401k investment: \(retirementAccount.formatted(.currency(code: "USD")))")
                 .font(.custom("Times New Roman", size: 17))
                 .padding()
-            Text("Your monthly housing costs: $\(HousingCostsPerMonth)")
+            Text("Your monthly housing costs: \(HousingCostsPerMonth.formatted(.currency(code: "USD")))")
                 .font(.custom("Times New Roman", size: 17))
                 .padding()
-            Text("Your final balance is: $\(savingsAfterHousing)")
+            Text("Your final balance is: \(savingsAfterHousing.formatted(.currency(code: "USD")))")
                 .font(.custom("Times New Roman", size: 17))
         }
     }
