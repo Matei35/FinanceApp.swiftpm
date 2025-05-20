@@ -8,6 +8,8 @@ struct HousingView: View {
     @State var HousingCostsPerMonth: Double = 0
     @State var savingsAfterHousing: Double = 0
     @State var selectedHousing: String = "Apartment"
+    @State var selectedRegion: String = "East"
+    let regionOptions = ["East", "Midwest", "South", "West"]
     let housingOptions = ["Apartment", "Condo", "House", "Mansion"]
     
     var body: some View {
@@ -19,6 +21,16 @@ struct HousingView: View {
         }
         .pickerStyle(SegmentedPickerStyle())
         .padding()
+        
+        Picker("Region of the country", selection: $selectedRegion) {
+            ForEach(regionOptions, id: \.self) { option in
+                Text(option)
+            }
+        }
+        .pickerStyle(SegmentedPickerStyle())
+        .padding()
+        
+        
         Button("Calculate for housing costs per month") {
             switch selectedHousing {
             case "Condo":
@@ -31,9 +43,25 @@ struct HousingView: View {
                 HousingCostsPerMonth = 30000
             default:
                 HousingCostsPerMonth = 0
+           }
+            switch selectedRegion{
+            case "East":
+                HousingCostsPerMonth = 2*HousingCostsPerMonth
+            case "West":
+                HousingCostsPerMonth = 1.5*HousingCostsPerMonth
+            case "South": HousingCostsPerMonth = 0.75*HousingCostsPerMonth
+            case "Midwest": HousingCostsPerMonth = 1*HousingCostsPerMonth
+            default: HousingCostsPerMonth = 0
+                
             }
+        
             savingsAfterHousing = (moneyPost401k/12) - HousingCostsPerMonth
+            
+            
         }
+        
+        
+            
         
         NavigationStack{
             NavigationLink("Go to the final page", destination: conclusionView(savingsAfterHousing: $savingsAfterHousing, Tax: $Tax, retirementAccount: $retirementAccount, HousingCostsPerMonth: $HousingCostsPerMonth))
