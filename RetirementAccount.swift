@@ -89,6 +89,9 @@ struct RetirementAccountView: View {
             
             Text("\(monkey)")
                 .foregroundStyle(Background ? .white: .black)
+            
+            Spacer()
+            
             Toggle("Dark Mode",isOn: $Background)
                 .padding(.bottom)
                 .foregroundStyle(Background ? .white: .black)
