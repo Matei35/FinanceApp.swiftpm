@@ -23,24 +23,24 @@ struct RetirementAccountView: View {
                 .textFieldStyle(.roundedBorder)
                 .frame(width:300)
                 .foregroundStyle(.black)
-            Button("Find out Maximum Limit for 401k"){
+            Button("Find out Maximum Limit for Roth IRA"){
                 if age <= 49 {
                     amount = 23500
-                    output = ("The maximum amount you can put in your 401k is \(amount.formatted(.currency(code: "USD")))")
+                    output = ("The maximum amount you can put in your Roth IRA is \(amount.formatted(.currency(code: "USD")))")
                 }
                     
                 if age >= 50 && age <= 59 {
                     amount = 31000
-                    output = "The maximum amount you can put in your 401k is \(amount.formatted(.currency(code: "USD")))"
+                    output = "The maximum amount you can put in your Roth IRA is \(amount.formatted(.currency(code: "USD")))"
                 }
                 if age >= 60 && age <= 63 {
                     amount = 34750
-                    output = "The maximum amount you can put in your 401k is \(amount.formatted(.currency(code: "USD")))"
+                    output = "The maximum amount you can put in your Roth IRA is \(amount.formatted(.currency(code: "USD")))"
                 }
                 
                 if age >= 64 {
                     amount = 31000
-                    output = "The maximum amount you can put in your 401k is \(amount.formatted(.currency(code: "USD")))"
+                    output = "The maximum amount you can put in your Roth IRA is \(amount.formatted(.currency(code: "USD")))"
                 }
             }
             
@@ -55,11 +55,11 @@ struct RetirementAccountView: View {
                 .frame(width:300)
                 .foregroundStyle(.black)
             
-            Text("Enter money for 401k")
+            Text("Enter money for Roth IRA")
                 .font(.custom("Times New Roman", size: 21))
                 .foregroundStyle(Background ? .white: .black)
             
-            TextField("Money for 401k", value: $retirementAccount, format: .number)
+            TextField("Money for Roth IRA", value: $retirementAccount, format: .number)
                 .multilineTextAlignment(.center)
                 .textFieldStyle(.roundedBorder)
                 .frame(width:300)
