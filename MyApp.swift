@@ -6,8 +6,7 @@ struct MyApp: App {
     var body: some Scene {
         WindowGroup {
             if showApp{
-            
-                    ContentView()
+                ContentView()
                     
             
                  
@@ -17,7 +16,6 @@ struct MyApp: App {
                     .foregroundStyle(.green)
                 .onAppear(){
                     DispatchQueue.main.asyncAfter(deadline: .now() + 3){
-                        
                             showApp = true
                         
                     }

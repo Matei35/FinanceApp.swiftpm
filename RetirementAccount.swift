@@ -11,39 +11,43 @@ struct RetirementAccountView: View {
     @State var output: String = ""
     @State var monkey: String = ""
     @State var Background: Bool = false
+    @Binding var Tax: Double
     var body: some View {
         NavigationStack {
         VStack{
             Text("Enter your age")
                 .foregroundStyle(Background ? .white: .black)
+                .font(.custom("Times New Roman", size: 20))
             TextField("", value: $age, format: .number)
                 .multilineTextAlignment(.center)
                 .textFieldStyle(.roundedBorder)
                 .frame(width:300)
                 .foregroundStyle(.black)
-            Button("Find out Maximum Limit for 401k"){
+            Button("Find out Maximum Limit for Roth IRA"){
                 if age <= 49 {
                     amount = 23500
-                    output = ("The maximum amount you can put in your 401k is \(amount.formatted(.currency(code: "USD")))")
+                    output = ("The maximum amount you can put in your Roth IRA is \(amount.formatted(.currency(code: "USD")))")
                 }
+                    
                 if age >= 50 && age <= 59 {
                     amount = 31000
-                    output = "The maximum amount you can put in your 401k is \(amount.formatted(.currency(code: "USD")))"
+                    output = "The maximum amount you can put in your Roth IRA is \(amount.formatted(.currency(code: "USD")))"
                 }
                 if age >= 60 && age <= 63 {
                     amount = 34750
-                    output = "The maximum amount you can put in your 401k is \(amount.formatted(.currency(code: "USD")))"
+                    output = "The maximum amount you can put in your Roth IRA is \(amount.formatted(.currency(code: "USD")))"
                 }
                 
                 if age >= 64 {
                     amount = 31000
-                    output = "The maximum amount you can put in your 401k is \(amount.formatted(.currency(code: "USD")))"
+                    output = "The maximum amount you can put in your Roth IRA is \(amount.formatted(.currency(code: "USD")))"
                 }
             }
             
             Text("\(output)")
                 .foregroundStyle(Background ? .white: .black)
             Text("Enter your yearly salary post tax")
+                .font(.custom("Times New Roman", size: 21))
                 .foregroundStyle(Background ? .white: .black)
             TextField("", value: $takeHomePay, format: .number)
                 .multilineTextAlignment(.center)
@@ -51,10 +55,11 @@ struct RetirementAccountView: View {
                 .frame(width:300)
                 .foregroundStyle(.black)
             
-            Text("Enter money for 401k")
+            Text("Enter money for Roth IRA")
+                .font(.custom("Times New Roman", size: 21))
                 .foregroundStyle(Background ? .white: .black)
             
-            TextField("Money for 401k", value: $retirementAccount, format: .number)
+            TextField("Money for Roth IRA", value: $retirementAccount, format: .number)
                 .multilineTextAlignment(.center)
                 .textFieldStyle(.roundedBorder)
                 .frame(width:300)
@@ -75,9 +80,10 @@ struct RetirementAccountView: View {
                     }
                 }
                 Text(String("Money left after 401k: $\(moneyPost401k)"))
+                .font(.custom("Times New Roman", size: 21))
                     .foregroundStyle(Background ? .white: .black)
                 NavigationLink("Go to Housing Costs") {
-                    HousingView(moneyPost401k: $moneyPost401k)
+                    HousingView(moneyPost401k: $moneyPost401k, Tax: $Tax, retirementAccount: $retirementAccount)
                 }
             }
             
