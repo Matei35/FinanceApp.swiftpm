@@ -46,9 +46,9 @@ struct HousingView: View {
            }
             switch selectedRegion{
             case "East":
-                HousingCostsPerMonth = 2*HousingCostsPerMonth
+                HousingCostsPerMonth = 13/6*HousingCostsPerMonth
             case "West":
-                HousingCostsPerMonth = 1.5*HousingCostsPerMonth
+                HousingCostsPerMonth = 4/3*HousingCostsPerMonth
             case "South": HousingCostsPerMonth = 0.75*HousingCostsPerMonth
             case "Midwest": HousingCostsPerMonth = 1*HousingCostsPerMonth
             default: HousingCostsPerMonth = 0
