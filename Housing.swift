@@ -64,7 +64,7 @@ struct HousingView: View {
             
         
         NavigationStack{
-            NavigationLink("Go to the final page", destination: conclusionView(savingsAfterHousing: $savingsAfterHousing, Tax: $Tax, retirementAccount: $retirementAccount, HousingCostsPerMonth: $HousingCostsPerMonth))
+            NavigationLink("Go to the groceries page", destination: GroceryView(savingsAfterHousing: $savingsAfterHousing, Tax: $Tax, retirementAccount: $retirementAccount, HousingCostsPerMonth: $HousingCostsPerMonth))
         }
         
         VStack{

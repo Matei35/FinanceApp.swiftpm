@@ -1,10 +1,11 @@
 import SwiftUI
 
 struct conclusionView: View {
-    @Binding var savingsAfterHousing: Double
+    @Binding var savingsAfterGroceries: Double
     @Binding var Tax: Double
     @Binding var retirementAccount: Double
     @Binding var HousingCostsPerMonth: Double
+    @Binding var totalGroceryCost: Double
     
     var body: some View {
         VStack {
@@ -17,7 +18,10 @@ struct conclusionView: View {
             Text("Your monthly housing costs: \(HousingCostsPerMonth.formatted(.currency(code: "USD")))")
                 .font(.custom("Times New Roman", size: 17))
                 .padding()
-            Text("Your final balance is: \(savingsAfterHousing.formatted(.currency(code: "USD")))")
+            Text("Your monthly grocery costs: \(totalGroceryCost.formatted(.currency(code: "USD")))")
+                .font(.custom("Times New Roman", size: 17))
+                .padding()
+            Text("Your final balance is: \(savingsAfterGroceries.formatted(.currency(code: "USD")))")
                 .font(.custom("Times New Roman", size: 17))
         }
     }
