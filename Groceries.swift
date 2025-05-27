@@ -29,6 +29,10 @@ struct GroceryView: View {
                 Text("This is how much money you will spend on groceries per month: \(totalGroceryCost)")
                     .font(.custom("Times New Roman", size: 12))
             }
+            if numberOfPeople >= 10{
+                Text("Holy moly! You have a lot people! Maybe you should consider buying groceries in bulk!")
+                    .font(.custom("Times New Roman", size: 12))
+            }
 
             Text("You have \(remainingAfterGroceries, specifier: "%.2f") left to spend on other things!")
                 .font(.custom("Times New Roman", size: 12))
