@@ -40,20 +40,20 @@ struct GroceryView: View {
                 Button("Calculate grocery costs") {
                     let baseCost = Double(numberOfPeople) * baseCostPerPerson
                     switch selectedGrocerySpending {
-                        case "Low":
-                            GroceryCostsPerMonth = baseCost * 0.75
-                        case "Medium":
-                            GroceryCostsPerMonth = baseCost
-                        case "High":
-                            GroceryCostsPerMonth = baseCost * 1.25
-                        default:
-                            GroceryCostsPerMonth = baseCost
+                    case "Low":
+                        GroceryCostsPerMonth = baseCost * 0.75
+                    case "Medium":
+                        GroceryCostsPerMonth = baseCost
+                    case "High":
+                        GroceryCostsPerMonth = baseCost * 1.25
+                    default:
+                        GroceryCostsPerMonth = baseCost
                     }
                     savingsAfterGroceries = savingsAfterHousing - GroceryCostsPerMonth
                 }
                 .padding()
                 .buttonStyle(.borderedProminent)
-
+                
                 if numberOfPeople < 0 {
                     Text("Sorry! You can't have a negative number of people!")
                         .font(.custom("Times New Roman", size: 18))
@@ -69,48 +69,24 @@ struct GroceryView: View {
                     Text("You have $\(savingsAfterGroceries, specifier: "%.2f") left to spend on other things!")
                         .font(.custom("Times New Roman", size: 18))
                 }
-
-        let costPerPerson = 350
-        let totalGroceryCost = numberOfPeople * costPerPerson
-        let remainingAfterGroceries = savingsAfterHousing - Double(totalGroceryCost)
-
-        VStack {
-            TextField("How many people are in your family?", value: $numberOfPeople, format: .number)
-                .padding()
-                .keyboardType(.numberPad)
-
-            if numberOfPeople < 0 {
-                Text("Sorry! You can't have a negative number of people!")
-                    .font(.custom("Times New Roman", size: 12))
-            } else if numberOfPeople == 0 {
-                Text("You need more people than this!")
-                    .font(.custom("Times New Roman", size: 12))
-            } else {
-                Text("This is how much money you will spend on groceries per month: \(totalGroceryCost)")
-                    .font(.custom("Times New Roman", size: 12))
+               
+            
+                    NavigationStack {
+                        NavigationLink(
+                            "Go to the final page",
+                            destination: conclusionView(
+                                savingsAfterGroceries: $savingsAfterGroceries,
+                                Tax: $Tax,
+                                retirementAccount: $retirementAccount,
+                                HousingCostsPerMonth: $HousingCostsPerMonth,
+                                totalGroceryCost: $GroceryCostsPerMonth
+                            )
+                        )
+                        .padding()
+                    }
+                    .padding()
+                }
             }
-            if numberOfPeople >= 10{
-                Text("Holy moly! You have a lot people! Maybe you should consider buying groceries in bulk!")
-                    .font(.custom("Times New Roman", size: 12))
-            }
-
-            Text("You have \(remainingAfterGroceries, specifier: "%.2f") left to spend on other things!")
-                .font(.custom("Times New Roman", size: 12))
-
-            NavigationStack {
-                NavigationLink(
-                    "Go to the final page",
-                    destination: conclusionView(
-                        savingsAfterGroceries: $savingsAfterGroceries,
-                        Tax: $Tax,
-                        retirementAccount: $retirementAccount,
-                        HousingCostsPerMonth: $HousingCostsPerMonth,
-                        totalGroceryCost: $GroceryCostsPerMonth
-                    )
-                )
-                .padding()
-            }
-            .padding()
         }
     }
-}
+
