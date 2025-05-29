@@ -18,7 +18,7 @@ struct GroceryView: View {
             TextField("How many people are in your family?", value: $numberOfPeople, format: .number)
                 .padding()
                 .keyboardType(.numberPad)
-
+            
             if numberOfPeople < 0 {
                 Text("Sorry! You can't have a negative number of people!")
                     .font(.custom("Times New Roman", size: 12))
@@ -33,16 +33,14 @@ struct GroceryView: View {
                 Text("Holy moly! You have a lot people! Maybe you should consider buying groceries in bulk!")
                     .font(.custom("Times New Roman", size: 12))
             }
-
+            
             Text("You have \(remainingAfterGroceries, specifier: "%.2f") left to spend on other things!")
                 .font(.custom("Times New Roman", size: 12))
-
+            
             NavigationStack {
                 NavigationLink(
-                    "Go to the final page",
-                    destination: conclusionView(savingsAfterGroceries: $savingsAfterGroceries, Tax: $Tax, retirementAccount: $retirementAccount, HousingCostsPerMonth: $HousingCostsPerMonth, totalGroceryCost: $GroceryCostsPerMonth)
-                )
-                .padding()
+                    "Go to Child Costs",
+                    destination: ChildView(Tax: $Tax, retirementAccount: $retirementAccount, HousingCostsPerMonth: $HousingCostsPerMonth, savingsAfterGroceries: $savingsAfterGroceries))
             }
         }
         .onChange(of: numberOfPeople) { newValue in
