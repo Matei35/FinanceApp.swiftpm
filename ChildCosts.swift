@@ -7,6 +7,7 @@ struct ChildView: View {
     @Binding var retirementAccount: Double
     @Binding var HousingCostsPerMonth: Double
     @Binding var savingsAfterGroceries: Double
+    @Binding var GroceryCostsPerMonth: Double
     @State var childcosts: Double = 0
     @State var savingsAfterChildren: Double = 0
     var body: some View {
