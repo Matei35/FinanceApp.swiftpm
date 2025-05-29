@@ -25,7 +25,13 @@ struct ChildView: View {
                 .multilineTextAlignment(.center)
                 .textFieldStyle(.roundedBorder)
                 .frame(width:300)
+            Button("Calculate Money Post Child Care Costs") {
+                Calculatechildcosts()
+            }
             Text("Your monthly takehome pay after child costs: \(savingsAfterChildren.formatted(.currency(code: "USD")))")
+        }
+        NavigationStack {
+            
         }
     }
     func Calculatechildcosts(){
