@@ -73,9 +73,9 @@ struct GroceryView: View {
             
                     NavigationStack {
                         NavigationLink(
-                            "Go to child care costs",
-                            destination: ChildView(Tax: $Tax, retirementAccount: $retirementAccount, HousingCostsPerMonth: $HousingCostsPerMonth, savingsAfterGroceries: $savingsAfterGroceries, GroceryCostsPerMonth: $GroceryCostsPerMonth
-                                )
+                            "Go to the Child Care Costs",
+                            destination: ChildView(Tax: $Tax, retirementAccount: $retirementAccount, HousingCostsPerMonth: $HousingCostsPerMonth, savingsAfterGroceries: $savingsAfterGroceries, GroceryCostsPerMonth: $GroceryCostsPerMonth)
+                            
                             )
                         .padding()
                     }

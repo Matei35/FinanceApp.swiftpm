@@ -6,7 +6,8 @@ struct conclusionView: View {
     @Binding var retirementAccount: Double
     @Binding var HousingCostsPerMonth: Double
     @Binding var totalGroceryCost: Double
-    
+    @Binding var childcosts: Double
+    @Binding var savingsAfterChildren: Double
     var body: some View {
         VStack {
             Text("Your annual tax payment: \(Tax.formatted(.currency(code: "USD")))")
