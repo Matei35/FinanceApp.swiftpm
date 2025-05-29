@@ -10,6 +10,7 @@ struct ChildView: View {
     @Binding var GroceryCostsPerMonth: Double
     @State var childcosts: Double = 0
     @State var savingsAfterChildren: Double = 0
+    
     var body: some View {
         VStack {
             Text("Disclaimer: Only if you have children from 1-5 years old.")
@@ -30,9 +31,7 @@ struct ChildView: View {
             }
             Text("Your monthly takehome pay after child costs: \(savingsAfterChildren.formatted(.currency(code: "USD")))")
         }
-        NavigationStack {
-            
-        }
+       
     }
     func Calculatechildcosts(){
         childcosts = (averageAge*numberOfChildren*950)
