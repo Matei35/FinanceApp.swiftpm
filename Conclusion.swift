@@ -9,6 +9,12 @@ struct conclusionView: View {
     
     var body: some View {
         VStack {
+            
+            Text("J.M.C. Finance App")
+                .font(.largeTitle)
+                .foregroundStyle(.green)
+                .padding(50)
+            
             Text("Your annual tax payment: \(Tax.formatted(.currency(code: "USD")))")
                 .font(.custom("Times New Roman", size: 17))
                 .padding()

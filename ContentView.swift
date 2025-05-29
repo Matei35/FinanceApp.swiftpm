@@ -45,13 +45,14 @@ struct ContentView: View {
                 Text("Your annual takehome pay after tax: \(takeHomePay.formatted(.currency(code: "USD")))")
                     .foregroundStyle(Background ? .white: .black)
                     .font(.custom("Times New Roman", size: 17))
-                
+                    
+                    
                 
             Text(String("Your Monthly Take Home Pay: $\(takeHomePay/12)"))
                     .foregroundStyle(Background ? .white: .black)
                     .font(.custom("Times New Roman", size: 17))
                 
-                NavigationLink("Go to 401k calculator!"){
+                NavigationLink("Go to Roth IRA calculator!"){
                     RetirementAccountView(takeHomePay: $takeHomePay, Tax: $Tax)
                 }
                 

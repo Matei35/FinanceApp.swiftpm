@@ -13,12 +13,19 @@ struct HousingView: View {
     let housingOptions = ["Apartment", "Condo", "House", "Mansion"]
     
     var body: some View {
+        
+        Text("J.M.C. Finance App")
+            .font(.largeTitle)
+            .foregroundStyle(.green)
+            .padding(60)
+        
         Text("Select the type of resident you want to live in:")
         Picker("Housing Type", selection: $selectedHousing) {
             ForEach(housingOptions, id: \.self) { option in
                 Text(option)
             }
         }
+        
         .pickerStyle(SegmentedPickerStyle())
         .padding()
         

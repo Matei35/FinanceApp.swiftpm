@@ -13,8 +13,16 @@ struct RetirementAccountView: View {
     @State var Background: Bool = false
     @Binding var Tax: Double
     var body: some View {
+        
+        
+        
         NavigationStack {
         VStack{
+            Text("J.M.C. Finance App")
+                        .font(.largeTitle)
+                        .foregroundStyle(.green)
+                        .padding(60)
+            
             Text("Enter your age")
                 .foregroundStyle(Background ? .white: .black)
                 .font(.custom("Times New Roman", size: 20))
@@ -79,7 +87,7 @@ struct RetirementAccountView: View {
                             .foregroundStyle(.blue)
                     }
                 }
-                Text(String("Money left after 401k: $\(moneyPost401k)"))
+                Text(String("Money left after Roth IRA: $\(moneyPost401k)"))
                 .font(.custom("Times New Roman", size: 21))
                     .foregroundStyle(Background ? .white: .black)
                 NavigationLink("Go to Housing Costs") {

@@ -15,6 +15,12 @@ struct GroceryView: View {
         let remainingAfterGroceries = savingsAfterHousing - Double(totalGroceryCost)
 
         VStack {
+            
+            Text("J.M.C. Finance App")
+                .font(.largeTitle)
+                .foregroundStyle(.green)
+                .padding(60)
+            
             TextField("How many people are in your family?", value: $numberOfPeople, format: .number)
                 .padding()
                 .keyboardType(.numberPad)
