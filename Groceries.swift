@@ -73,15 +73,10 @@ struct GroceryView: View {
             
                     NavigationStack {
                         NavigationLink(
-                            "Go to the final page",
-                            destination: conclusionView(
-                                savingsAfterGroceries: $savingsAfterGroceries,
-                                Tax: $Tax,
-                                retirementAccount: $retirementAccount,
-                                HousingCostsPerMonth: $HousingCostsPerMonth,
-                                totalGroceryCost: $GroceryCostsPerMonth
+                            "Go to child care costs",
+                            destination: ChildView(Tax: $Tax, retirementAccount: $retirementAccount, HousingCostsPerMonth: $HousingCostsPerMonth, savingsAfterGroceries: $savingsAfterGroceries, GroceryCostsPerMonth: $GroceryCostsPerMonth
+                                )
                             )
-                        )
                         .padding()
                     }
                     .padding()
